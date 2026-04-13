@@ -1,0 +1,12 @@
+name: mouse-variant-pipeline
+channels:
+  - conda-forge
+  - bioconda
+  - defaults
+dependencies:
+  - python>=3.10
+  - pandas
+  - pybigwig
+  - bedtools
+  - pip:
+    - -r requirements.txt

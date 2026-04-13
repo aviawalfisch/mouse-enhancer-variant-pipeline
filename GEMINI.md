@@ -1,0 +1,65 @@
+# Gemini Context: Mouse Genomics Pipeline (mm39)
+
+This workspace contains two main bioinformatics pipelines for mouse genomic analysis (build `mm39` / GENCODE `M32`).
+
+## Project Overview
+
+The project is divided into two primary functional areas:
+
+### 1. Variant → Enhancer → Gene Mapping Pipeline
+A modular Python-based workflow designed to interpret noncoding variants by mapping them to candidate genes via enhancer regions.
+- **Goal:** Link `variant → enhancer → nearest gene` to provide regulatory context for noncoding mutations.
+- **Key Logic:** Overlap variants with enhancers, identify the nearest transcription start site (TSS), and calculate a priority score based on enhancer activity and distance.
+- **Technologies:** Python (Pandas, pyBigWig), `bedtools`.
+
+### 2. Mouse WGS Germline Variant Calling Pipeline
+A structured Bash pipeline located in the `mouse_wgs_pipeline/` directory for processing Whole Genome Sequencing (WGS) data.
+- **Goal:** Transform raw FASTQ files into joint-genotyped and filtered VCFs.
+- **Technologies:** BWA-MEM, GATK (HaplotypeCaller), snpEff, Samtools.
+
+---
+
+## Directory Structure & Key Files
+
+### Root Directory (Variant Mapping)
+- `scripts/run_variant_pipeline.py`: Main entry point for the refactored pipeline.
+- `src/`: Modular Python source code (parsing, annotation, summarization, utils).
+- `archive/`: Original one-off scripts (e.g., `first_step.py`, `make_tss_bed.py`, etc.).
+- `data/`: Raw, reference, and interim data.
+- `results/`: Final output tables and reports.
+
+### `external_files/mouse_wgs_pipeline/`
+- `mouse_wgs_pipeline.sh`: Main dispatcher script for the WGS pipeline.
+- `config.sh`: Configuration and environment variables.
+- `01_setup.sh`: Validates references and indices.
+- Subsequent steps (`02_align.sh` to `08_evaluate.sh`) handle the full GATK Best Practices workflow.
+
+---
+
+## Getting Started
+
+### Prerequisites
+- **Python:** 3.10+ with `pandas` and `pyBigWig`.
+- **System Tools:** `bedtools`, `bwa`, `samtools`, `gatk`.
+- **Reference Data:** Mouse `mm39` genome and GENCODE `M32` GTF.
+
+### Running the Mapping Pipeline
+Follow the steps outlined in `variant_enhancer_gene_pipeline_readme.md`:
+1. Parse hits: `python first_step.py`
+2. Generate TSS: `python make_tss_bed.py`
+3. Map closest genes: `bedtools closest -a unique_enhancers.bed -b mm39_tss.bed -d > enhancer_nearest_gene.tsv`
+4. Score & Attach: `python score_enhancers.py` and `python attach_to_variants.py`
+
+### Running the WGS Pipeline
+```bash
+cd mouse_wgs_pipeline
+./mouse_wgs_pipeline.sh all
+```
+Or run specific steps: `setup`, `align`, `dedup`, `call`, `joint`, `filter`, `annotate`, `evaluate`.
+
+---
+
+## Development Conventions
+- **Data Integrity:** Chromosome names should follow the `chrN` format (normalized in Python scripts).
+- **Modularity:** Keep analysis logic in Python and heavy-lifting orchestration in Bash.
+- **Documentation:** Update the `variant_enhancer_gene_pipeline_readme.md` when logic changes in the mapping pipeline.

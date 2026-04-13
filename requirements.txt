@@ -1,0 +1,4 @@
+pandas>=2.0.0
+pyBigWig>=0.3.18
+argparse
+numpy

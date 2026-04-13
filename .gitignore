@@ -1,0 +1,34 @@
+# Data and References
+data/interim/
+data/processed/
+data/raw/*.bw
+data/raw/*.txt
+data/reference/*.gz
+data/reference/*.bed
+external_files/*.bw
+
+# Specific ignored types
+*.bw
+*.gtf.gz
+*.bed
+# *.tsv  <-- Remove this to allow final results tracking if needed
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Environments
+.venv
+env/
+venv/
+ENV/
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
