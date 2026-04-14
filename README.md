@@ -108,6 +108,23 @@ The following metrics were computed from the primary analysis of `DNV-06-CL3-35.
 
 ---
 
+## 📂 External Data & Prerequisites
+
+To keep the repository lightweight, large genomic data files are not included in the version control. Before running the pipeline, ensure the following files are available:
+
+1.  **Reference Annotation:**
+    -   Download the GENCODE M32 (mm39) GTF: [gencode.vM32.annotation.gtf.gz](https://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_mouse/release_M32/gencode.vM32.annotation.gtf.gz)
+    -   Place it in: `data/reference/`
+
+2.  **Chromatin Accessibility (Optional):**
+    -   Provide a BigWig (`.bw`) file for enhancer activity scoring (e.g., ATAC-seq or DNase-seq).
+    -   Place it in: `data/raw/`
+
+3.  **Variant Hits:**
+    -   The input file `DNV-06-CL3-35.enhancer_hits.txt` should be in `data/raw/`.
+
+---
+
 ## 🚀 Reproducibility: How to Run
 
 ### Installation
