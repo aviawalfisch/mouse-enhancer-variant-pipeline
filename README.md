@@ -57,12 +57,26 @@ This project represents a **baseline approximation**. Moving to a full ABC imple
 ├── src/                    # Modular Python source code
 │   ├── __init__.py
 │   ├── annotation/         # TSS and Gene mapping logic
+│   │   ├── __init__.py
+│   │   ├── gene_mapper.py
+│   │   └── tss_generator.py
 │   ├── parsing/            # Variant/Enhancer parsing logic
+│   │   ├── __init__.py
+│   │   └── variant_parser.py
 │   ├── summarization/      # Ranking and filtering logic
+│   │   ├── __init__.py
+│   │   └── gene_summarizer.py
 │   └── utils/              # BigWig and general utilities
+│       ├── __init__.py
+│       └── bigwig_utils.py
 └── tests/                  # Unit tests
-    └── test_tss_generator.py
+    ├── test_bigwig_utils.py
+    ├── test_gene_mapper.py
+    ├── test_gene_summarizer.py
+    ├── test_tss_generator.py
+    └── test_variant_parser.py
 ```
+
 
 ---
 
