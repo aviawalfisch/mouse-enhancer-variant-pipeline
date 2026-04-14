@@ -57,10 +57,9 @@ This project represents a **baseline approximation**. Moving to a full ABC imple
 │   └── utils/              # BigWig and general utilities
 ├── scripts/                # Entry-point scripts
 │   └── run_variant_pipeline.py
-├── results/
-│   ├── tables/             # Final TSV outputs (Ranked lists)
-│   └── reports/            # Placeholder for plots and summaries
-└── external_files/         # Auxiliary documentation and resources
+└── results/
+    ├── tables/             # Final TSV outputs (Ranked lists)
+    └── reports/            # Placeholder for plots and summaries
 ```
 
 ---
