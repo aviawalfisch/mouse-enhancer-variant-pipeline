@@ -42,24 +42,23 @@ This project represents a **baseline approximation**. Moving to a full ABC imple
 ```text
 .
 ├── README.md               # Project documentation
-├── requirements.txt        # Python dependencies
-├── environment.yml         # Conda environment definition
-├── .gitignore              # Git ignore file
 ├── data/
-│   ├── raw/                # Original input files (DNV hits, BigWigs)
-│   ├── reference/          # Reference annotations (GTF, TSS BED)
 │   ├── interim/            # Intermediate pipeline files
-│   └── processed/          # Placeholder for final processed datasets
-├── src/                    # Modular Python source code
-│   ├── parsing/            # Variant/Enhancer parsing logic
-│   ├── annotation/         # TSS and Gene mapping logic
-│   ├── summarization/      # Ranking and filtering logic
-│   └── utils/              # BigWig and general utilities
-├── scripts/                # Entry-point scripts
-│   └── run_variant_pipeline.py
-└── results/
-    ├── tables/             # Final TSV outputs (Ranked lists)
-    └── reports/            # Placeholder for plots and summaries
+│   ├── processed/          # Placeholder for final processed datasets
+│   ├── raw/                # Original input files (DNV hits, BigWigs)
+│   └── reference/          # Reference annotations (GTF, TSS BED)
+├── environment.yml         # Conda environment definition
+├── requirements.txt        # Python dependencies
+├── results/
+│   ├── reports/            # Placeholder for plots and summaries
+│   └── tables/             # Final TSV outputs (Ranked lists)
+├── scripts/
+│   └── run_variant_pipeline.py  # Entry-point script
+└── src/                    # Modular Python source code
+    ├── annotation/         # TSS and Gene mapping logic
+    ├── parsing/            # Variant/Enhancer parsing logic
+    ├── summarization/      # Ranking and filtering logic
+    └── utils/              # BigWig and general utilities
 ```
 
 ---
