@@ -48,7 +48,7 @@ def main():
     # Create directories
     os.makedirs(args.interim, exist_ok=True)
     os.makedirs(args.refdir, exist_ok=True)
-    os.makedirs(os.path.join(args.outdir, "tables"), exist_ok=True)
+    os.makedirs(args.outdir, exist_ok=True)
 
     # Derived paths
     variants_tsv = os.path.join(args.interim, "parsed_variants_with_enhancers.tsv")
@@ -60,9 +60,9 @@ def main():
     enhancer_summary = os.path.join(args.interim, "enhancer_summary.tsv")
     
     # Final Output Paths
-    final_ranked = os.path.join(args.outdir, "tables", "unique_candidate_genes_ranked.tsv")
-    final_curated = os.path.join(args.outdir, "tables", "enhancer_candidate_genes_curated.tsv")
-    final_gene_summary = os.path.join(args.outdir, "tables", "unique_candidate_genes.tsv")
+    final_ranked = os.path.join(args.outdir, "unique_candidate_genes_ranked.tsv")
+    final_curated = os.path.join(args.outdir, "enhancer_candidate_genes_curated.tsv")
+    final_gene_summary = os.path.join(args.outdir, "unique_candidate_genes.tsv")
 
     # Pipeline Steps
     logger.info("Starting Mouse Variant Analysis Pipeline...")
