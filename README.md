@@ -54,11 +54,14 @@ This project represents a **baseline approximation**. Moving to a full ABC imple
 │   └── tables/             # Final TSV outputs (Ranked lists)
 ├── scripts/
 │   └── run_variant_pipeline.py  # Entry-point script
-└── src/                    # Modular Python source code
-    ├── annotation/         # TSS and Gene mapping logic
-    ├── parsing/            # Variant/Enhancer parsing logic
-    ├── summarization/      # Ranking and filtering logic
-    └── utils/              # BigWig and general utilities
+├── src/                    # Modular Python source code
+│   ├── __init__.py
+│   ├── annotation/         # TSS and Gene mapping logic
+│   ├── parsing/            # Variant/Enhancer parsing logic
+│   ├── summarization/      # Ranking and filtering logic
+│   └── utils/              # BigWig and general utilities
+└── tests/                  # Unit tests
+    └── test_tss_generator.py
 ```
 
 ---
@@ -145,6 +148,12 @@ python scripts/run_variant_pipeline.py \
   --gtf data/reference/gencode.vM32.annotation.gtf.gz \
   --bigwig data/raw/atac_mm39.bw \
   --outdir results/
+```
+
+### Testing
+To run the automated test suite, use:
+```bash
+PYTHONPATH=. pytest tests/
 ```
 
 ---
