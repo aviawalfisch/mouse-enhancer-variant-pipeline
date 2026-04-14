@@ -59,7 +59,7 @@ This project represents a **baseline approximation**. Moving to a full ABC imple
 ├── results/
 │   ├── tables/             # Final TSV outputs (Ranked lists)
 │   └── reports/            # Placeholder for plots and summaries
-└── archive/                # Deprecated or one-off scripts
+└── external_files/         # Auxiliary documentation and resources
 ```
 
 ---
